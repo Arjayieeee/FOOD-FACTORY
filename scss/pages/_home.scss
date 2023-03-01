@@ -22,7 +22,12 @@
             margin-left: 2rem;
         }
     }
+    // & img{
+    //     border-radius: 10rem;
+     
+    // }
 }
+
 
 
 //  PRODUCT
@@ -40,6 +45,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
+    
     &::before{
         content: '';
         position: absolute;
@@ -67,6 +73,7 @@
     height: 20rem;
     margin: 0 auto 3rem;
     display: block;
+    object-fit: cover;
 
     }
     a{
@@ -156,8 +163,8 @@
     background-image: url(../img/restaurant.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-x: 430px;
-    background-position-y: -650px;
+    background-position-x: 230px;
+    background-position-y: -250px;
     &__content{
         background-color: $clr-primary;
         color: $clr-light;
@@ -197,4 +204,260 @@
 
         }
     }
+}
+
+
+
+// WORK
+
+.work__wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+        .work__card{
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: $shadow;
+            text-align: center;
+            i{
+                color: $clr-primary;
+                font-size: 3rem;
+            }
+            h3{
+                font-size: 2rem;
+                margin: 2rem 0;
+                color: $clr-primary;
+            }
+            p{
+                opacity: .5{
+                font-weight:bold ;
+                }
+            }
+        }
+}
+
+
+
+// APP
+
+
+.app{
+    &__wrapper{
+        padding: 2rem 10rem;
+        background-color: lighten($clr-primary-light, 20);
+        border-radius: 3rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        height: 100%;
+        max-height: 44rem;
+        overflow: hidden;
+        }
+    &__content{
+    max-width: 58rem;
+
+    h2{
+        font-size: clamp(3rem,6vw,5rem);
+        font-weight:bold;
+        margin: 4rem 0 3rem;
+            span{
+                    color: $clr-primary;
+                }
+    }
+    p{
+        font-size: 2rem;   
+        opacity: .5;
+        margin-bottom: 4rem;
+        font-weight: bold;
+    }
+
+    }
+}
+
+
+// TESTIMONIALS
+
+
+.testimonials{
+    &__wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2rem;
+        
+    }
+
+    &__card{
+        display: grid;
+        grid-template-columns: 1fr 1.8fr;
+        grid-gap: 1rem;
+        border-radius: 1rem;
+        box-shadow: $shadow;
+        padding: 1rem;
+        position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 7rem;
+                    height: 7rem;
+                    border-radius:  50%;
+                    background-color: $clr-primary;
+                    top: 15px;
+                    left: 15px;
+                    z-index: -1;
+                }
+            img{
+                width: 10rem;
+                height: 10rem;
+                border-radius: 50%;
+                object-fit: cover;
+                transition: .5S ease;
+               
+                
+            }
+
+            h4{
+                font-weight: bold;
+                font-size: 2rem;
+
+            }
+            small{
+                font-size: 1.2rem;
+                opacity: .5;
+
+            }
+            ul{
+                display: flex;
+                gap: .5rem;
+                margin: .5rem 0;
+                font-size: 1rem;
+            }
+            i{
+                color: $clr-primary;
+            }
+            p{
+                opacity: .8;
+            }
+    }
+    .inner{
+        width: 10rem;
+        height: 10rem;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 5px solid $clr-primary;
+    }
+    &__card:hover img{
+        transform: scale(1.2);
+    }
+    
+
+    &__img{
+        padding: 1rem ;
+    }
+
+}
+
+
+// NEWSLETTER
+
+
+.newsletter{
+    min-height: 45rem;
+    background-image: 
+        linear-gradient(
+            rgba($clr-dark, 0.6),
+            rgba($clr-dark, 0.6)
+        ),
+    url(../img/restaurant.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &__wrapper{
+        max-width: 75rem;
+        width: 100%;
+        margin: 0 auto;
+        color: $clr-light;
+        text-align: center;
+            h2{
+                font-size: clamp(3rem,6vw,5rem);
+                font-weight: bold;
+                    span{
+                        color: $clr-primary;
+                    }
+                   
+            }
+            p{  
+                margin: 2rem 0;
+                opacity: 0.8;
+                font-size: 2rem;
+            }
+            form{
+                
+                input{
+                    text-align: left;
+                    background-color:$clr-light;
+                    padding: .8rem 1.6rem;
+                    border: 3px solid $clr-light;
+                    border-radius: .5rem;
+                    width: 280px;
+                    color: $clr-dark;
+                }
+                button{
+                    background-color:$clr-primary;
+                    padding: .8rem 1.6rem;
+                    border-radius: .5rem;
+                    border: 3px solid $clr-light;
+                    transform: translateX(-12px);
+
+                }
+            }
+       
+    }
+}
+
+
+// FAQS
+.faq{
+
+&__block{
+    border-radius: 2rem;
+    box-shadow: $shadow;
+    margin-bottom: 5rem;
+}
+
+&__question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    cursor: pointer;
+ 
+    h3{
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    i{
+        font-size: 1.8rem;
+        transition: .5s ease;
+    }
+}
+&__question.open i{
+    transform: rotate(135deg);
+}
+
+&__answer{
+    padding: .5rem 3rem;
+    // border-top: 1px solid #f2f2f2;
+    height: auto;
+    max-height: 0rem;
+    transition: max-height .1s ease-in-out;
+    overflow: hidden;
+}
+
+&__answer.open{
+    max-height: 20rem;
+}
+
 }
