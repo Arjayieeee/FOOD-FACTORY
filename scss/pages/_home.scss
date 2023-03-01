@@ -1,18 +1,21 @@
 .banner{
     &__wrapper{
         min-height: calc(100vh - 60px);
+        @include mediaQuery($mobile){
+            min-height:auto;
+            margin-top: 5rem;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 5rem;
+        }
     }
     &__content{
         max-width: 50rem;
         width: 100%;
         h1{
             font-size: clamp(3rem,6vw,6rem) ;
-            font-weight: bold;
             line-height: 1.2;
             margin-bottom: 2rem;
-            span{
-                color: $clr-primary;
-            }
         }
         p{
             font-size: 1.8rem;
@@ -33,9 +36,10 @@
 //  PRODUCT
 
 .product__cards{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem;
+    @include grid(4, 2rem);
+    @include mediaQuery($mobile){
+        @include grid(1,2rem);
+    }
 }
 .product__item{
     box-shadow:$shadow; 
@@ -82,10 +86,8 @@
     }
 }
 .item__info{
-    display: flex;
-    justify-content: space-between;
+    @include centerBetween;
     margin-bottom: 2rem;
-    align-items: center;
     margin-bottom: 1rem;
         h3{
             font-size: 2.5rem;
@@ -124,9 +126,7 @@
 .category__tab{
    
     ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+       @include centerBetween;
         gap: 1rem;
 
         border-radius: 3rem;
@@ -165,6 +165,10 @@
     background-size: cover;
     background-position-x: 230px;
     background-position-y: -250px;
+    @include mediaQuery ($mobile){
+    background-position-x: 0;
+    background-position-y: 0;
+    }
     &__content{
         background-color: $clr-primary;
         color: $clr-light;
@@ -174,6 +178,14 @@
         display: grid;
         place-items: center;
         justify-content: flex-start;
+        @include mediaQuery ($mobile){
+            width: 100%;
+            background-color: rgba($clr-primary, 0.8);
+            padding: 2rem 0;
+            margin: 2rem 0;
+         
+
+        }
         &::before{
             content: '';
             position: absolute;
@@ -181,6 +193,10 @@
             height: 100%;
             width: 40vw;
             background-color: $clr-primary;
+            @include mediaQuery ($mobile){
+                display: none;
+                
+            }
         }
         .inner{
             max-width: 40rem;
@@ -193,7 +209,6 @@
             }
             h2{
                 font-size: clamp(5rem,6vw,3rem);
-                font-weight: bold;
                 margin: 3rem 0;
             }
             p{
@@ -211,9 +226,11 @@
 // WORK
 
 .work__wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem;
+    
+    @include grid(4,2rem);
+    @include mediaQuery ($mobile) {
+        @include grid(1,2rem);
+    }
         .work__card{
             padding: 2rem;
             border-radius: 1rem;
@@ -246,8 +263,12 @@
         padding: 2rem 10rem;
         background-color: lighten($clr-primary-light, 20);
         border-radius: 3rem;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
+        @include gridUneven(2fr 1fr,2rem);
+        @include mediaQuery ($mobile) {
+            padding:2rem;
+            @include gridUneven (1fr, 2rem);
+            max-height: 74rem;
+        }
         height: 100%;
         max-height: 44rem;
         overflow: hidden;
@@ -279,16 +300,16 @@
 
 .testimonials{
     &__wrapper{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 2rem;
+        @include grid(3, 2rem);
+        @include mediaQuery($mobile){
+            @include grid(1,2rem);
+        }
         
     }
 
     &__card{
-        display: grid;
-        grid-template-columns: 1fr 1.8fr;
-        grid-gap: 1rem;
+      
+        @include gridUneven(1fr 1.8fr, 2rem);
         border-radius: 1rem;
         box-shadow: $shadow;
         padding: 1rem;
@@ -305,17 +326,14 @@
                     z-index: -1;
                 }
             img{
-                width: 10rem;
-                height: 10rem;
+                @include imgFit(10rem,10rem);
                 border-radius: 50%;
-                object-fit: cover;
                 transition: .5S ease;
                
                 
             }
 
             h4{
-                font-weight: bold;
                 font-size: 2rem;
 
             }
@@ -360,7 +378,7 @@
 
 
 .newsletter{
-    min-height: 45rem;
+   
     background-image: 
         linear-gradient(
             rgba($clr-dark, 0.6),
@@ -369,10 +387,8 @@
     url(../img/restaurant.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    @include centerAll;
+    min-height: 45rem;
 
     &__wrapper{
         max-width: 75rem;
@@ -382,11 +398,6 @@
         text-align: center;
             h2{
                 font-size: clamp(3rem,6vw,5rem);
-                font-weight: bold;
-                    span{
-                        color: $clr-primary;
-                    }
-                   
             }
             p{  
                 margin: 2rem 0;
@@ -401,7 +412,7 @@
                     padding: .8rem 1.6rem;
                     border: 3px solid $clr-light;
                     border-radius: .5rem;
-                    width: 280px;
+                    width: 38rem;
                     color: $clr-dark;
                 }
                 button{
@@ -410,8 +421,7 @@
                     border-radius: .5rem;
                     border: 3px solid $clr-light;
                     transform: translateX(-12px);
-
-                }
+                
             }
        
     }
@@ -428,15 +438,12 @@
 }
 
 &__question{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include centerBetween;
     padding: 1.5rem 3rem;
     cursor: pointer;
  
     h3{
         font-size: 2.5rem;
-        font-weight: bold;
     }
     i{
         font-size: 1.8rem;
@@ -444,7 +451,7 @@
     }
 }
 &__question.open i{
-    transform: rotate(135deg);
+    transform: rotate(140deg);
 }
 
 &__answer{
@@ -458,6 +465,8 @@
 
 &__answer.open{
     max-height: 20rem;
+}
+
 }
 
 }

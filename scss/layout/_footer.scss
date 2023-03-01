@@ -7,20 +7,17 @@
         }
     
     &__wrapper{
-        display: grid;
-        grid-template-columns: 1.3fr 1fr 1fr 1fr;
-        grid-gap: 1rem;
+        @include gridUneven(1.3fr 1fr 1fr 1fr, 2rem);
+        @include mediaQuery($mobile){
+            @include grid(1,2rem);
+        }
     }
 
     &__item{
         h3{
             text-transform: uppercase;
             margin-bottom: 3rem;
-            font-weight: bold;
             font-size: 1.8rem;
-                span{
-                    color: $clr-primary;
-                }
         }
         p{
             width: 80%;

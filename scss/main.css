@@ -73,6 +73,13 @@ p {
   margin-bottom: 1rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  color: #ff9a1e;
+}
+
 .container {
   width: 100%;
   max-width: 120rem;
@@ -463,6 +470,11 @@ p {
 .header .branding a span {
   color: #ff9a1e;
 }
+@media screen and (max-width: 48rem) {
+  .header__nav {
+    display: none;
+  }
+}
 .header__nav a {
   position: relative;
 }
@@ -495,16 +507,19 @@ p {
 .footer__wrapper {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .footer__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+  }
 }
 .footer__item h3 {
   text-transform: uppercase;
   margin-bottom: 3rem;
-  font-weight: bold;
   font-size: 1.8rem;
-}
-.footer__item h3 span {
-  color: #ff9a1e;
 }
 .footer__item p {
   width: 80%;
@@ -540,18 +555,23 @@ p {
 .banner__wrapper {
   min-height: calc(100vh - 60px);
 }
+@media screen and (max-width: 48rem) {
+  .banner__wrapper {
+    min-height: auto;
+    margin-top: 5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5rem;
+  }
+}
 .banner__content {
   max-width: 50rem;
   width: 100%;
 }
 .banner__content h1 {
   font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: bold;
   line-height: 1.2;
   margin-bottom: 2rem;
-}
-.banner__content h1 span {
-  color: #ff9a1e;
 }
 .banner__content p {
   font-size: 1.8rem;
@@ -563,8 +583,15 @@ p {
 
 .product__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .product__cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+  }
 }
 
 .product__item {
@@ -612,8 +639,8 @@ p {
 .item__info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
   align-items: center;
+  margin-bottom: 2rem;
   margin-bottom: 1rem;
 }
 .item__info h3 {
@@ -678,6 +705,12 @@ p {
   background-position-x: 230px;
   background-position-y: -250px;
 }
+@media screen and (max-width: 48rem) {
+  .booking {
+    background-position-x: 0;
+    background-position-y: 0;
+  }
+}
 .booking__content {
   background-color: #ff9a1e;
   color: #fff;
@@ -688,6 +721,14 @@ p {
   place-items: center;
   justify-content: flex-start;
 }
+@media screen and (max-width: 48rem) {
+  .booking__content {
+    width: 100%;
+    background-color: rgba(255, 154, 30, 0.8);
+    padding: 2rem 0;
+    margin: 2rem 0;
+  }
+}
 .booking__content::before {
   content: "";
   position: absolute;
@@ -695,6 +736,11 @@ p {
   height: 100%;
   width: 40vw;
   background-color: #ff9a1e;
+}
+@media screen and (max-width: 48rem) {
+  .booking__content::before {
+    display: none;
+  }
 }
 .booking__content .inner {
   max-width: 40rem;
@@ -708,7 +754,6 @@ p {
 }
 .booking__content .inner h2 {
   font-size: clamp(5rem, 6vw, 3rem);
-  font-weight: bold;
   margin: 3rem 0;
 }
 .booking__content .inner p {
@@ -718,8 +763,15 @@ p {
 
 .work__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .work__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+  }
 }
 .work__wrapper .work__card {
   padding: 2rem;
@@ -747,9 +799,19 @@ p {
   border-radius: 3rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-gap: 2rem;
   height: 100%;
   max-height: 44rem;
   overflow: hidden;
+}
+@media screen and (max-width: 48rem) {
+  .app__wrapper {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    max-height: 74rem;
+  }
 }
 .app__content {
   max-width: 58rem;
@@ -771,13 +833,20 @@ p {
 
 .testimonials__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .testimonials__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+  }
 }
 .testimonials__card {
   display: grid;
   grid-template-columns: 1fr 1.8fr;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   border-radius: 1rem;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.06);
   padding: 1rem;
@@ -797,13 +866,14 @@ p {
 .testimonials__card img {
   width: 10rem;
   height: 10rem;
-  border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  border-radius: 50%;
   transition: 0.5S ease;
 }
 .testimonials__card h4 {
-  font-weight: bold;
   font-size: 2rem;
 }
 .testimonials__card small {
@@ -837,13 +907,14 @@ p {
 }
 
 .newsletter {
-  min-height: 45rem;
   background-image: linear-gradient(rgba(43, 43, 43, 0.6), rgba(43, 43, 43, 0.6)), url(../img/restaurant.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 1px;
+  min-height: 45rem;
 }
 .newsletter__wrapper {
   max-width: 75rem;
@@ -854,10 +925,6 @@ p {
 }
 .newsletter__wrapper h2 {
   font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: bold;
-}
-.newsletter__wrapper h2 span {
-  color: #ff9a1e;
 }
 .newsletter__wrapper p {
   margin: 2rem 0;
@@ -870,7 +937,7 @@ p {
   padding: 0.8rem 1.6rem;
   border: 3px solid #fff;
   border-radius: 0.5rem;
-  width: 280px;
+  width: 38rem;
   color: #2b2b2b;
 }
 .newsletter__wrapper form button {
@@ -880,37 +947,35 @@ p {
   border: 3px solid #fff;
   transform: translateX(-12px);
 }
-
-.faq__block {
+.newsletter .faq__block {
   border-radius: 2rem;
   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.06);
   margin-bottom: 5rem;
 }
-.faq__question {
+.newsletter .faq__question {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
   cursor: pointer;
 }
-.faq__question h3 {
+.newsletter .faq__question h3 {
   font-size: 2.5rem;
-  font-weight: bold;
 }
-.faq__question i {
+.newsletter .faq__question i {
   font-size: 1.8rem;
   transition: 0.5s ease;
 }
-.faq__question.open i {
-  transform: rotate(135deg);
+.newsletter .faq__question.open i {
+  transform: rotate(140deg);
 }
-.faq__answer {
+.newsletter .faq__answer {
   padding: 0.5rem 3rem;
   height: auto;
   max-height: 0rem;
   transition: max-height 0.1s ease-in-out;
   overflow: hidden;
 }
-.faq__answer.open {
+.newsletter .faq__answer.open {
   max-height: 20rem;
 }/*# sourceMappingURL=main.css.map */
